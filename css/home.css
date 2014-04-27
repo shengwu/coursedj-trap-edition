@@ -22,7 +22,7 @@ body{
     z-index:6;
     display:inline;
     padding-top:15em;
-    padding-right:45em;
+    padding-right:50%;
 }
 
 #welcome>div{
@@ -34,7 +34,7 @@ body{
 }
 
 #welcome span{
-    font-size:10em;
+    font-size:8em;
     background-image:none;
 }
 
