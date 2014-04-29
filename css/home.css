@@ -100,10 +100,6 @@ body{
     margin-top:5px;
 }
 
-#help{
-    margin-left:10px;
-}
-
 #info{
     z-index:5;
     position:absolute;
@@ -253,17 +249,4 @@ a:visited, .white{
 
 #submit button{
     background-color:black;
-}
-
-#welcomeModal h4{
-    font-size:36px;
-}
-
-#welcomeModal .modal-body{
-    font-size:1.2em;
-}
-
-#welcomeModal .modal-header{
-    background-color:black;
-    color:white;
 }
