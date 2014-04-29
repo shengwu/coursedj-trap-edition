@@ -21,7 +21,8 @@ body{
     background-image:url("../img/dj2.jpg");
     z-index:6;
     display:inline;
-    padding-top:10%;
+    padding-top:15em;
+    padding-right:50%;
 }
 
 #welcome>div{
@@ -39,6 +40,8 @@ body{
 
 #welcome img{
     padding-bottom:5.5em;
+    height:8%;
+    width:8%;
 }
 
 #subheading{
