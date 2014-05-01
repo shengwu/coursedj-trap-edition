@@ -96,14 +96,83 @@
         <div id="welcome"> <!-- Welcome Screen -->
             <div>
                 <div><img src="img/boxes.ico"><span class="white">CourseDJ</span></div>
+                <div class="white" style="font-size: 30px; margin-top: -50px; margin-bottom: 18px;">Trap Edition&trade;</div>
                 <div id="subheading" class="white">Scheduling, simplified.</div>
                 <label class="btn btn-default" id="start">Get Started!</label>
             </div>
+
+<div id="container"></div>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/three.js/r66/three.min.js"></script>
+    <script>
+      // revolutions per second
+      var angularSpeed = 0.2; 
+      var lastTime = 0;
+ 
+      // this function is executed on each animation frame
+      function animate(){
+        // update
+        var time = (new Date()).getTime();
+        var timeDiff = time - lastTime;
+        var angleChange = angularSpeed * timeDiff * 2 * Math.PI / 1000;
+        cube.rotation.y += angleChange;
+        lastTime = time;
+ 
+        // render
+        renderer.render(scene, camera);
+ 
+        // request new frame
+        requestAnimationFrame(function(){
+            animate()//;
+  
+        });
+      }
+ 
+      // renderer
+      var renderer = new THREE.WebGLRenderer({alpha: true});
+      var width = 600;
+      var height = 500;
+      renderer.setSize(width, height);
+      document.getElementById('container').appendChild(renderer.domElement);
+ 
+      // camera
+      var camera = new THREE.PerspectiveCamera(45, width / height, 1, 1000);
+      camera.position.z = 500;
+ 
+      // scene
+      var scene = new THREE.Scene();
+      
+      // material
+      var material = new THREE.MeshLambertMaterial({
+        map: THREE.ImageUtils.loadTexture('img/asap_ferg_billboard_650_a.jpg')
+      });
+                
+      // cube
+      var cube = new THREE.Mesh(new THREE.CubeGeometry(210, 210, 210), material);
+      cube.overdraw = true;
+      cube.rotation.x = Math.PI * 0.1;
+      scene.add(cube);
+      
+      // add subtle ambient lighting
+      var ambientLight = new THREE.AmbientLight(0xbbbbbb);
+      scene.add(ambientLight);
+      
+      // directional lighting
+      var directionalLight = new THREE.DirectionalLight(0xffffff);
+      directionalLight.position.set(1, 1, 1).normalize();
+      scene.add(directionalLight);
+
+      // start animation
+      animate();
+    </script>
+
+    <audio src="sounds/music.mp3" type="audio/mpeg" autoplay loop>
+
         </div>
         <div id="info">  <!-- Info Page -->
             <div id="header">
                 <img src="img/boxes.ico">
-                <span class="white title">CourseDJ</span>
+                <span class="white title">CourseDJ Trap Edition&trade;</span>
             </div>
             <div id="about-div">
                 <p id="aboutpara" class="white">Who are we?</p>
@@ -121,7 +190,7 @@
         <span id="main">
             <div id="header">
                 <img src="img/boxes.ico">
-                <span class="white title">CourseDJ</span>
+                <span class="white title">CourseDJ Trap Edition&trade;</span>
             </div>
         <div class="row" id="everything">
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-3" id="left-box"> <!-- left box -->
@@ -209,6 +278,28 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <!-- Latest compiled and minified JavaScript -->
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script>
+var sounds = [
+  new Audio('sounds/air_horn.mp3'),
+  new Audio('sounds/real_trap_shit_fast.mp3'),
+  new Audio('sounds/damn_son.mp3'),
+  new Audio('sounds/flocka.mp3'),
+  new Audio('sounds/trapaholics.mp3'),
+];
+
+sounds.map(function(sound) { sound.load(); });
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function playRandomSound() {
+  var whichSound = getRandomInt(0, sounds.length-1);
+  if (window.chrome) sounds[whichSound].load();
+  sounds[whichSound].play();
+}
+        
+        </script>
         <script src="js/home.js" type="text/javascript"></script>
         <script src="js/app.js"></script>
         <script src="js/styling.js"></script>

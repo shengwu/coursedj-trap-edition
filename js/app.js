@@ -19,7 +19,6 @@ var test4 = {
 };*/
 
 
-
 (function(window, document, $, undefined){
     if (typeof String.prototype.startsWith != 'function') {
       String.prototype.startsWith = function(str) {
@@ -505,6 +504,7 @@ var test4 = {
       });
       numberOfClasses = $('select').val();
       console.log(allTimeslots.length);
+      playRandomSound();
       algorithm();
       displayCalendar();
     }

@@ -1,5 +1,6 @@
 $(document).ready(function(){
     $("#start").click(function(){
+        sounds[0].play();
         $("#welcome").fadeOut(650);
     });
     $("#about").click(function(){
